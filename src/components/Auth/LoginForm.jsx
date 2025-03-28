@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/slices/authSlice';
 import { LogIn } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate=useNavigate();
   const [username, setUsername] = useState('');
   const [password ,setPassword] =useState('');
   const dispatch = useDispatch();
@@ -12,9 +14,10 @@ const LoginForm = () => {
     e.preventDefault();
     if (username.trim()) {
       dispatch(login({ id: Date.now().toString(), username }));
+      navigate('/todos');
     }
-  };
 
+  };
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -61,7 +64,7 @@ const LoginForm = () => {
             type="submit"
             className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors"
           >
-            Sign In
+            Login
           </button>
         </form>
       </div>

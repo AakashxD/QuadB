@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-  tasks: [],
+  tasks: [], 
   weather: null,
   loading: false,
   error: null,
 };
+
+
 export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
   async () => {
@@ -16,7 +18,6 @@ export const fetchWeather = createAsyncThunk(
     try {
       const response = await fetch(URL);
       const data = await response.json();
-      console.log(response);
       if (!response.ok) {
         throw new Error(data.message || "Failed to fetch weather");
       }
@@ -35,24 +36,28 @@ const todoSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       state.tasks.push(action.payload);
-      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      localStorage.setItem('tasks', JSON.stringify(state.tasks)); 
     },
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter(task => task.id !== action.payload);
-      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      localStorage.setItem('tasks', JSON.stringify(state.tasks)); 
     },
     toggleTask: (state, action) => {
       const task = state.tasks.find(t => t.id === action.payload);
       if (task) {
         task.completed = !task.completed;
-        localStorage.setItem('tasks', JSON.stringify(state.tasks));
+        localStorage.setItem('tasks', JSON.stringify(state.tasks)); 
       }
     },
     restoreTasks: (state) => {
-      const savedTasks = localStorage.getItem('tasks');
+      const savedTasks = JSON.parse(localStorage.getItem('tasks'));
       if (savedTasks) {
-        state.tasks = JSON.parse(savedTasks);
+        state.tasks = savedTasks;
       }
+    },
+    logout: (state) => {
+      state.tasks = []; 
+      localStorage.removeItem('tasks'); 
     },
   },
   extraReducers: (builder) => {
@@ -72,5 +77,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTask, deleteTask, toggleTask, restoreTasks } = todoSlice.actions;
+export const { addTask, deleteTask, toggleTask, restoreTasks, logout } = todoSlice.actions;
 export default todoSlice.reducer;
