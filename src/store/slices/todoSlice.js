@@ -17,7 +17,6 @@ export const fetchWeather = createAsyncThunk(
     
     
     try {
-      console.log(URL);
       const response = await fetch(URL);
       const data = await response.json();
       if (!response.ok) {

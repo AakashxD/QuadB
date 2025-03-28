@@ -1,5 +1,5 @@
 # Todo App with Redux and Weather Integration
-
+# Deployed url https://quad-b-ochre.vercel.app/
 This is a **full-featured** Todo App built with **React, Redux Toolkit, and Tailwind CSS**, featuring user authentication, task management, and a live weather widget.
 
 ## 🚀 Features
@@ -41,36 +41,18 @@ This is a **full-featured** Todo App built with **React, Redux Toolkit, and Tail
 4. **Delete tasks** using the trash icon.
 5. **View live weather** at the bottom of the app.
 
-## 📂 Project Structure
-```
-📦 src
- ┣ 📂 components
- ┃ ┣ 📂 Auth
- ┃ ┃ ┗ 📜 LoginForm.jsx
- ┃ ┣ 📂 Todo
- ┃ ┃ ┣ 📜 TaskInput.jsx
- ┃ ┃ ┣ 📜 TaskList.jsx
- ┃ ┃ ┗ 📜 TodoApp.jsx
- ┃ ┗ 📜 WeatherWidget.jsx
- ┣ 📂 store
- ┃ ┣ 📂 slices
- ┃ ┃ ┣ 📜 authSlice.js
- ┃ ┃ ┣ 📜 todoSlice.js
- ┣ 📜 App.jsx
- ┣ 📜 main.jsx
- ┗ 📜 index.css
-```
 
 ## 🚀 Deployment
+
+- Deployed URL: https://quad-b-ochre.vercel.app/
+
 - To build for production, run:
   ```bash
   npm run build
   ```
-- Deploy the `dist/` folder to any static hosting service like **Vercel, Netlify, or Firebase Hosting**.
+
 
 ## 🎯 Future Enhancements
-- **User Registration** with backend authentication.
-- **Drag and Drop Tasks** for better task management.
 - **Dynamic Weather Location** (Allow users to select their city).
 
 
