@@ -14,8 +14,10 @@ export const fetchWeather = createAsyncThunk(
     const API_KEY = import.meta.env.VITE_API_KEY; 
     const CITY = "Delhi";
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`;
-
+    
+    
     try {
+      console.log(URL);
       const response = await fetch(URL);
       const data = await response.json();
       if (!response.ok) {
