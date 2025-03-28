@@ -18,7 +18,7 @@ This is a **full-featured** Todo App built with **React, Redux Toolkit, and Tail
 ## 📦 Installation & Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/AakashxD/quad.git
+   git clone https://github.com/AakashxD/QuadB.git
    ```
 2. **Install dependencies:**
    ```bash
